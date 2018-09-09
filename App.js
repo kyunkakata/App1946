@@ -24,7 +24,7 @@ const RootStack =createStackNavigator({
   Setting2:Setting2,
 },
 {
-  initialRouteName:'Menu',
+  initialRouteName:'Setting',
   headerMode:'none',
   navigationOptions:{
     headerVisible:false,
