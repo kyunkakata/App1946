@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View,AsyncStorage,StyleSheet,Image,ImageBackground,Dimensions,TouchableOpacity,Vibration} from 'react-native'
+import codePush from 'react-native-code-push'
 import FastImage from 'react-native-fast-image'
 import {databaseOptions,createMealDatabase} from '../realm/allSchema'
 var SoundPlayer = require('react-native-sound');
@@ -87,6 +88,10 @@ export class Menu extends Component {
     song.release();
   }
  async componentWillMount(){
+   codePush.sync({
+    updateDialog: true,
+    installMode: codePush.InstallMode.IMMEDIATE
+  });
     const lang = await AsyncStorage.getItem('LANGUAGE');
     createMealDatabase();
     if(lang=="EN"){
